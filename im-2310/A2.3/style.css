@@ -1,0 +1,199 @@
+/*
+  This one CSS file is imported into both index.html AND hosono.html so you need to be careful that it 
+  works for both.
+*/
+
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+}
+
+:root{
+  /* first two colours come from Kuroi's Manga Pallete Palette */
+  /* https://lospec.com/palette-list/manga-pallete */
+  --col-01:#171219;
+  --col-02:#f2fbeb;
+  --col-03:#5252ff; 
+  --col-04:#b6e878;
+  font-size: 16px;
+  /* scroll behaviour makes the <a> links to ids scroll to position over time rather than immediately */
+  scroll-behavior: smooth;
+}
+
+body{
+  padding: 1rem;
+  background-color: var(--col-02);
+  color: var(--col-01);
+  transition: 2s;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav li{
+  font-size: 1rem;
+}
+
+section{
+  margin-bottom: 2rem;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+p{
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+figcaption{
+  width: fit-content;
+}
+
+dl ul{
+  margin-bottom: 0;
+}
+
+li{
+  font-size: 1rem;
+}
+
+dd{
+  padding-left: 60px;
+}
+
+li ul{
+  padding-left: 40px;
+}
+
+.img-wrapper{
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.img-figure{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-img{
+  width: 80%;
+}
+
+.res-columns{
+  column-width: 25rem;
+}
+
+
+/*As elaborated below, since I was unable to custom the change in color for the button's background, I've decided to stay with the color
+purple as the background, this is because I believe it works with both the white and black texts while also stands out within the page.
+I've also made the background box a bit bigger from the text so it is not too crowded as before. The transition of the button content
+is also quicker than the rest because I feel like as users we should be able to determine the word changes for the button first.*/
+
+#mode-button {
+  float: right;
+  position: sticky;
+  top: 1rem;
+  width: 5%;
+  height: 1rem;
+  background-color: #5252ff;
+  transition: 1s;
+}
+
+/* This 'mode-background' is my attempt at trying to give the button a background color that could change color as the mode change but after many tries
+I'm unable to do so. I wanted to create this effect because I feel like it is easier to be spotted and also make the button appears more
+like a button. This change of appearance could also be seen as more interactive to users.  */
+
+#mode-background{
+  float: right;
+  position: sticky;
+  top: 1rem;
+  width: 5%;
+  height: 1rem;
+}
+
+/* code for loading page */
+
+#load-body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* I have decided to change the cursor into a wait icon to further indicate that it is a loading button  */
+/* I've also changed the border to be slightly seen with a soft tone color as I believe it is more aesthetically less bland to look at this way
+it also serve as a kind of guidance for the user to know where to click, the width size also following onto the throbber look & animation*/
+#load-link{
+  line-height: 1rem;
+  width: 35%;
+  border-color: #b6e878;
+  border: 0;
+  cursor: wait;
+}
+
+#load-throbber{
+  width: 35%;
+  height: 1rem;
+  background-color: #5252ff;
+  animation: loadingBar 5s alternate; 
+  display: none;    
+
+}
+/* This is my attempt at making the color bar to be able to have animation and change colors accordingly to the modules sample
+ to hopefully show the state of something similar to a loading process*/
+
+@keyframes loadingBar {
+  0% {
+    background-color: blue;
+  }
+  50% {
+    background-color:#8f8fee;
+  }
+  100% {
+  background-color:rgb(159, 188, 241);
+  }
+}
+/* Media Queries */
+
+/* medium devices 600 - 992 */
+@media only screen and (min-width: 600px) {
+  :root{
+    font-size: 20px;
+  }
+  
+  .img-wrapper{
+    width: 75%;
+    margin: 1.5rem auto;
+  }
+
+}
+
+/* medium devices 992 + */
+@media only screen and (min-width: 992px) {
+  :root{
+    font-size: 24px;
+  }
+
+  .img-wrapper{
+    max-width: fit-content;
+    float: right;
+    margin: 1.5rem;
+  }
+
+}
+
+@media (prefers-reduced-motion) {
+  :root{
+    scroll-behavior: auto;
+  }
+}
